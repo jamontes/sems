@@ -117,6 +117,7 @@ This application collects a PIN and then transfers using a
 cd ../..
 #/builddir/build
 ls -al
+ls -al SOURCES
 
 mkdir cmake_folder
 cd cmake_folder
