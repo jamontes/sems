@@ -1,11 +1,12 @@
 Summary:	SIP Express Media Server, an extensible SIP media server
 Name:		sems
-Version:	1.1.0
+Version:	1.8.0
 Release:	1
 URL:		http://www.iptel.org/sems
 # svn -r 1095 export http://svn.berlios.de/svnroot/repos/sems/branches/1.0.0 sems-1.0.0
 # tar cjvf sems-1.0.0.tar.bz2 sems-1.0.0
-Source:		%{name}-%{version}.tar.gz
+#Source:		%{name}-%{version}.tar.gz
+Source0:	https://github.com/denyspozniak/%{name}/archive/%{version}.tar.gz
 License:	GPLv2+
 Group:		Applications/Communications
 # Enable OpenSER
@@ -13,17 +14,30 @@ Group:		Applications/Communications
 # Use external gsm instead of shipped one
 #Patch2:		sems--external_gsm_lib.diff
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:	python >= 2.3
-BuildRequires:	sip-devel
-#BuildRequires:	libsamplerate-devel
-#BuildRequires:	gsm-devel
-#BuildRequires:	spandsp-devel
-# TODO consider enabling flite support in apps/conference
-#BuildRequires:	flite-devel
+
+BuildRequires:  hiredis-devel
+BuildRequires:	systemd
+BuildRequires:	libsamplerate-devel
+BuildRequires:	libevent-devel
+BuildRequires:	gsm-devel
+BuildRequires:	ilbc-devel
+BuildRequires:	spandsp-devel
+BuildRequires:	flite-devel
 BuildRequires:	speex-devel
-Requires(post):	/sbin/chkconfig
-Requires(preun):/sbin/chkconfig
-Requires(preun):/sbin/service
+BuildRequires:	mISDN-devel
+BuildRequires:	openssl-devel
+BuildRequires:	mysql++-devel
+BuildRequires:	python-devel
+BuildRequires:	codec2-devel
+BuildRequires:	bcg729-devel
+BuildRequires:	sip-devel
+BuildRequires:  opus-devel
+BuildRequires:  cmake3
+
+Requires(pre):  /usr/sbin/useradd
+Requires(post): systemd-units
+Requires(preun): systemd-units
+Requires(postun): systemd-units
 
 %description
 SEMS (SIP Express Media Server) is very extensible and programmable
@@ -95,15 +109,25 @@ This application collects a PIN and then transfers using a
 (proprietary) REFER the call`
 
 %prep
+
 %setup -q
-#rm -rf core/plug-in/gsm/gsm-1.0-pl10/
-#%patch0 -p0 -b .openser_enable
-#%patch2 -p0 -b .gsm_ext
-iconv -f iso8859-1 -t UTF-8 apps/diameter_client/Readme.diameter_client > apps/diameter_client/Readme.diameter_client.utf8 && mv apps/diameter_client/Readme.diameter_client{.utf8,}
-iconv -f iso8859-1 -t UTF-8 doc/Readme.voicebox > doc/Readme.voicebox.utf8 && mv doc/Readme.voicebox{.utf8,}
 
 %build
+mkdir build
+cd build
+cmake .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr -DINCLUDE_INSTALL_DIR:PATH=/usr/include -DLIB_INSTALL_DIR:PATH=/usr/lib -DSYSCONF_INSTALL_DIR:PATH=/etc -DSHARE_INSTALL_PREFIX:PATH=/usr/share -DLIB_SUFFIX= -DBUILD_SHARED_LIBS:BOOL=ON -DSEMS_USE_SPANDSP=yes -DSEMS_USE_LIBSAMPLERATE=yes -DSEMS_USE_ZRTP=NO -DSEMS_USE_MP3=yes -DSEMS_USE_ILBC=yes -DSEMS_USE_G729=yes -DSEMS_USE_OPUS=yes -DSEMS_USE_TTS=${SEMS_USE_TTS} -DSEMS_USE_OPENSSL=yes -DSEMS_USE_MONITORING=yes -DSEMS_USE_IPV6=yes -DSEMS_CFG_PREFIX= -DSEMS_AUDIO_PREFIX=/usr/share -DSEMS_EXEC_PREFIX=/usr -DSEMS_LIBDIR=lib -DSEMS_DOC_PREFIX=/usr/share/doc -DOPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR}
 make %{?_smp_mflags} EXTRA_CXXFLAGS="$RPM_OPT_FLAGS" TTS="y" exclude_modules="examples %{!?with_ilbc:ilbc} mp3" all
+
+
+
+
+
+
+
+
+
+
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
