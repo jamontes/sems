@@ -180,8 +180,8 @@ Summary:	Python bindings for SEMS
 #Requires:	python2 >= 2.3
 Requires:	%{name}%{?_isa} = %{version}-%{release}
 
-# %description	python
-# Python bindings for SEMS.
+%description	python
+Python bindings for SEMS.
 
 %if 0%{?_with_rtmp}
 %package	rtmp
