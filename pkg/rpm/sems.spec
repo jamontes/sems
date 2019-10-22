@@ -3,10 +3,11 @@ Name:		sems
 Version:	1.8.0
 Release:	1%{?dist}
 URL:		https://github.com/sems-server/%{name}
-Source0:	https://github.com/sems-server/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
+#Source0:	https://github.com/sems-server/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/sems-server/sems/archive/master.tar.gz
 License:	GPLv2+
 
-BuildRequires:	cmake >= 2.4
+#BuildRequires:	cmake >= 2.4
 BuildRequires:	flite-devel
 BuildRequires:	gcc-c++
 BuildRequires:	gsm-devel
@@ -20,10 +21,20 @@ BuildRequires:	mISDN-devel
 BuildRequires:	mysql++-devel
 BuildRequires:	openssl-devel
 BuildRequires:	opus-devel
-BuildRequires:	python2-devel
+#BuildRequires:	python2-devel
 BuildRequires:	spandsp-devel
 BuildRequires:	speex-devel
 BuildRequires:	systemd
+
+BuildRequires:	flite-devel
+BuildRequires:	python-devel
+BuildRequires:	codec2-devel
+BuildRequires:	bcg729-devel
+BuildRequires:	sip-devel
+BuildRequires:  cmake3
+BuildRequires:  lame-devel
+
+
 
 Requires(pre):  /usr/sbin/useradd
 Requires(post): systemd-units
