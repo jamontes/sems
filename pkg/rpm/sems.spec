@@ -113,11 +113,20 @@ This application collects a PIN and then transfers using a
 %setup -q
 
 %build
+# Current build directory:
 #/builddir/build/BUILD/sems-1.8.0
+
 cd ../..
+# Root folder
 #/builddir/build
 ls -al
+
+ls -al BUILD
+ls -al BUILDROOT
+ls -al RPMS
 ls -al SOURCES
+ls -al SPECS
+ls -al SRPMS
 
 mkdir cmake_folder
 cd cmake_folder
