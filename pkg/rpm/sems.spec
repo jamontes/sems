@@ -122,6 +122,7 @@ cd ../..
 ls -al
 
 ls -al BUILD
+ls -al BUILD/sems-1.8.0
 ls -al BUILDROOT
 ls -al RPMS
 ls -al SOURCES
