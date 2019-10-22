@@ -33,7 +33,7 @@ BuildRequires:	codec2-devel
 BuildRequires:	bcg729-devel
 BuildRequires:	sip-devel
 BuildRequires:  opus-devel
-BuildRequires:  cmake3
+BuildRequires:  cmake3 lame-devel
 
 Requires(pre):  /usr/sbin/useradd
 Requires(post): systemd-units
