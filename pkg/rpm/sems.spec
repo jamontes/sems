@@ -216,27 +216,10 @@ XMLRPC servers.
 mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 
 %build
-# %{cmake3} \
-#	-DSEMS_USE_SPANDSP=yes \
-#	-DSEMS_USE_LIBSAMPLERATE=yes \
-#	-DSEMS_USE_ZRTP=NO \
-#	-DSEMS_USE_MP3=yes \
-#	-DSEMS_USE_ILBC=yes \
-#	-DSEMS_USE_G729=yes \
-#	-DSEMS_USE_OPUS=yes \
-#	-DSEMS_USE_TTS=yes \
-#	-DSEMS_USE_OPENSSL=yes \
-#	-DSEMS_USE_MONITORING=yes \
-#	-DSEMS_USE_IPV6=yes \
-#	-DSEMS_CFG_PREFIX= \
-#	-DSEMS_AUDIO_PREFIX=%{_datadir} \
-#	-DSEMS_EXEC_PREFIX=%{_prefix} \
-#	-DSEMS_LIBDIR=%{_lib} \
-#	-DSEMS_DOC_PREFIX=%{_docdir}
 
 mkdir CMAKER
 cd CMAKER
-%cmake3 .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
+cmake3 .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
 		-DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG \
 		-DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG \
 		-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
@@ -263,6 +246,26 @@ cd CMAKER
 		-DSEMS_EXEC_PREFIX=/usr \
 		-DSEMS_LIBDIR=lib64 \
 		-DSEMS_DOC_PREFIX=/usr/share/doc
+
+
+# %{cmake3} \
+#	-DSEMS_USE_SPANDSP=yes \
+#	-DSEMS_USE_LIBSAMPLERATE=yes \
+#	-DSEMS_USE_ZRTP=NO \
+#	-DSEMS_USE_MP3=yes \
+#	-DSEMS_USE_ILBC=yes \
+#	-DSEMS_USE_G729=yes \
+#	-DSEMS_USE_OPUS=yes \
+#	-DSEMS_USE_TTS=yes \
+#	-DSEMS_USE_OPENSSL=yes \
+#	-DSEMS_USE_MONITORING=yes \
+#	-DSEMS_USE_IPV6=yes \
+#	-DSEMS_CFG_PREFIX= \
+#	-DSEMS_AUDIO_PREFIX=%{_datadir} \
+#	-DSEMS_EXEC_PREFIX=%{_prefix} \
+#	-DSEMS_LIBDIR=%{_lib} \
+#	-DSEMS_DOC_PREFIX=%{_docdir}
+
 
 make %{?_smp_mflags}
 
