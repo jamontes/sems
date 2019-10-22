@@ -236,8 +236,7 @@ mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 
 mkdir CMAKER
 cd CMAKER
-/usr/bin/cmake3 .. \
-		-DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
+%cmake3 .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
 		-DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG \
 		-DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG \
 		-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
