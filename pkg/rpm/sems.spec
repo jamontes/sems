@@ -6,7 +6,8 @@ URL:		http://www.iptel.org/sems
 # svn -r 1095 export http://svn.berlios.de/svnroot/repos/sems/branches/1.0.0 sems-1.0.0
 # tar cjvf sems-1.0.0.tar.bz2 sems-1.0.0
 #Source:		%{name}-%{version}.tar.gz
-Source0:	https://github.com/denyspozniak/%{name}/archive/%{version}.tar.gz
+#Source0:	https://github.com/denyspozniak/%{name}/archive/%{version}.tar.gz
+Source0:	https://github.com/denyspozniak/sems/archive/master.tar.gz
 License:	GPLv2+
 Group:		Applications/Communications
 # Enable OpenSER
@@ -116,33 +117,26 @@ This application collects a PIN and then transfers using a
 # Current build directory:
 #/builddir/build/BUILD/sems-1.8.0
 
-cd ../..
+#cd ../..
 # Root folder
 #/builddir/build
 ls -al
 
-ls -al BUILD
-ls -al BUILD/sems-1.8.0
-ls -al BUILDROOT
-ls -al RPMS
-ls -al SOURCES
-ls -al SPECS
-ls -al SRPMS
+#ls -al BUILD
+#ls -al BUILD/sems-1.8.0
+#ls -al BUILDROOT
+#ls -al RPMS
+#ls -al SOURCES
+#ls -al SPECS
+#ls -al SRPMS
 
-mkdir TAR
-cd TAR
-tar xzvf /builddir/build/SOURCES/1.8.0.tar.gz
-ls -al
-
-
-
-
-
-
-
+mkdir cmaker
+cd cmaker
+#tar xzvf /builddir/build/SOURCES/1.8.0.tar.gz
+#ls -al
 
 #cmake3 .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr -DINCLUDE_INSTALL_DIR:PATH=/usr/include -DLIB_INSTALL_DIR:PATH=/usr/lib -DSYSCONF_INSTALL_DIR:PATH=/etc -DSHARE_INSTALL_PREFIX:PATH=/usr/share -DLIB_SUFFIX= -DBUILD_SHARED_LIBS:BOOL=ON -DSEMS_USE_SPANDSP=yes -DSEMS_USE_LIBSAMPLERATE=yes -DSEMS_USE_ZRTP=NO -DSEMS_USE_MP3=yes -DSEMS_USE_ILBC=yes -DSEMS_USE_G729=yes -DSEMS_USE_OPUS=yes -DSEMS_USE_TTS=${SEMS_USE_TTS} -DSEMS_USE_OPENSSL=yes -DSEMS_USE_MONITORING=yes -DSEMS_USE_IPV6=yes -DSEMS_CFG_PREFIX= -DSEMS_AUDIO_PREFIX=/usr/share -DSEMS_EXEC_PREFIX=/usr -DSEMS_LIBDIR=lib -DSEMS_DOC_PREFIX=/usr/share/doc -DOPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR}
-cmake3 . -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr -DINCLUDE_INSTALL_DIR:PATH=/usr/include -DLIB_INSTALL_DIR:PATH=/usr/lib -DSYSCONF_INSTALL_DIR:PATH=/etc -DSHARE_INSTALL_PREFIX:PATH=/usr/share -DLIB_SUFFIX= -DBUILD_SHARED_LIBS:BOOL=ON -DSEMS_USE_SPANDSP=yes -DSEMS_USE_LIBSAMPLERATE=yes -DSEMS_USE_ZRTP=NO -DSEMS_USE_MP3=yes -DSEMS_USE_ILBC=yes -DSEMS_USE_G729=yes -DSEMS_USE_OPUS=yes -DSEMS_USE_TTS=${SEMS_USE_TTS} -DSEMS_USE_OPENSSL=yes -DSEMS_USE_MONITORING=yes -DSEMS_USE_IPV6=yes -DSEMS_CFG_PREFIX= -DSEMS_AUDIO_PREFIX=/usr/share -DSEMS_EXEC_PREFIX=/usr -DSEMS_LIBDIR=lib -DSEMS_DOC_PREFIX=/usr/share/doc -DOPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR}
+cmake3 .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr -DINCLUDE_INSTALL_DIR:PATH=/usr/include -DLIB_INSTALL_DIR:PATH=/usr/lib -DSYSCONF_INSTALL_DIR:PATH=/etc -DSHARE_INSTALL_PREFIX:PATH=/usr/share -DLIB_SUFFIX= -DBUILD_SHARED_LIBS:BOOL=ON -DSEMS_USE_SPANDSP=yes -DSEMS_USE_LIBSAMPLERATE=yes -DSEMS_USE_ZRTP=NO -DSEMS_USE_MP3=yes -DSEMS_USE_ILBC=yes -DSEMS_USE_G729=yes -DSEMS_USE_OPUS=yes -DSEMS_USE_TTS=${SEMS_USE_TTS} -DSEMS_USE_OPENSSL=yes -DSEMS_USE_MONITORING=yes -DSEMS_USE_IPV6=yes -DSEMS_CFG_PREFIX= -DSEMS_AUDIO_PREFIX=/usr/share -DSEMS_EXEC_PREFIX=/usr -DSEMS_LIBDIR=lib -DSEMS_DOC_PREFIX=/usr/share/doc -DOPENSSL_ROOT_DIR=${OPENSSL_ROOT_DIR}
 
 pwd
 ls -al
