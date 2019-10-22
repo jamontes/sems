@@ -216,7 +216,7 @@ XMLRPC servers.
 mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 
 %build
-%{cmake} \
+%{cmake3} \
 	-DSEMS_USE_SPANDSP=yes \
 	-DSEMS_USE_LIBSAMPLERATE=yes \
 	-DSEMS_USE_ZRTP=NO \
