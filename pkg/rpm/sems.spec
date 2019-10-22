@@ -174,16 +174,16 @@ Requires:	%{name}-ivr%{?_isa} = %{version}-%{release}
 This application collects a PIN and then transfers using a
 (proprietary) REFER the call.
 
-%package	python
-Summary:	Python bindings for SEMS
-BuildRequires:	python2 >= 2.3
-BuildRequires:	python2-sip-devel
-%{?_sip_api:Requires: sip-api(%{_sip_api_major}) >= %{_sip_api}}
-Requires:	python2 >= 2.3
-Requires:	%{name}%{?_isa} = %{version}-%{release}
+#%package	python
+#Summary:	Python bindings for SEMS
+#BuildRequires:	python2 >= 2.3
+#BuildRequires:	python2-sip-devel
+#%{?_sip_api:Requires: sip-api(%{_sip_api_major}) >= %{_sip_api}}
+#Requires:	python2 >= 2.3
+#Requires:	%{name}%{?_isa} = %{version}-%{release}
 
-%description	python
-Python bindings for SEMS.
+#%description	python
+#Python bindings for SEMS.
 
 %if 0%{?_with_rtmp}
 %package	rtmp
