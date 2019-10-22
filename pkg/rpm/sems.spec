@@ -216,7 +216,7 @@ XMLRPC servers.
 mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 
 %build
-
+ls -al
 mkdir CMAKER
 cd CMAKER
 cmake3 .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
