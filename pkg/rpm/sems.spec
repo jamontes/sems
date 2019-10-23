@@ -277,6 +277,7 @@ mkdir -p %{buildroot}%{_datadir}/%{name}/audio/ann_b2b
 mkdir -p %{buildroot}%{_datadir}/%{name}/audio/announcement
 mkdir -p %{buildroot}%{_datadir}/%{name}/audio/announce_transfer
 
+ls -laR %{buildroot}
 
 %pre
 getent passwd %{name} >/dev/null || \
