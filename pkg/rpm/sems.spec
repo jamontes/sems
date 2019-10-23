@@ -4,7 +4,6 @@ Version:	1.8.0
 Release:	1%{?dist}
 URL:		https://github.com/sems-server/%{name}
 #Source0:	https://github.com/sems-server/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
-
 #Source0:	https://github.com/sems-server/sems/archive/master.tar.gz
 Source0:	https://github.com/denyspozniak/sems/archive/master.tar.gz
 
@@ -222,8 +221,7 @@ mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 mkdir cmake_build && cd cmake_build
 #/builddir/build/BUILD/sems-1.8.0/cmake_build
 
-cmake3 .. -DSEMS_LIBDIR=%{_lib}
-
+cmake3 .. 
 
 #-DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
 #		-DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG \
