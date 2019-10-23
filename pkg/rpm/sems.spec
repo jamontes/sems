@@ -112,12 +112,12 @@ Requires:	%{name}%{?_isa} = %{version}-%{release}
 %description	g729
 This is a wrapper around the g729 codec from the bcg729 library.
 
-%package	gateway
-Summary:	ISDN gateway for SEMS
-Requires:	%{name}%{?_isa} = %{version}-%{release}
+#%package	gateway
+#Summary:	ISDN gateway for SEMS
+#Requires:	%{name}%{?_isa} = %{version}-%{release}
 
-%description	gateway
-ISDN gateway for SEMS.
+#%description	gateway
+#ISDN gateway for SEMS.
 
 %package	gsm
 Summary:	GSM support for SEMS
@@ -583,9 +583,9 @@ getent passwd %{name} >/dev/null || \
 %doc core/plug-in/g729/Readme.g729.md
 %{_libdir}/%{name}/plug-in/g729.so
 
-%files gateway
-%config(noreplace) %{_sysconfdir}/%{name}/etc/gateway.conf
-%{_libdir}/%{name}/plug-in/gateway.so
+#%files gateway
+#%config(noreplace) %{_sysconfdir}/%{name}/etc/gateway.conf
+#%{_libdir}/%{name}/plug-in/gateway.so
 
 %files gsm
 %{_libdir}/%{name}/plug-in/gsm.so
