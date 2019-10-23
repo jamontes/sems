@@ -555,7 +555,7 @@ getent passwd %{name} >/dev/null || \
 %{_libdir}/%{name}/dsm/mod_dlg.so
 %{_libdir}/%{name}/dsm/mod_groups.so
 %{_libdir}/%{name}/dsm/mod_monitoring.so
-%{_libdir}/%{name}/dsm/mod_mysql.so
+#%{_libdir}/%{name}/dsm/mod_mysql.so
 #%{_libdir}/%{name}/dsm/mod_py.so
 %{_libdir}/%{name}/dsm/mod_redis.so
 %{_libdir}/%{name}/dsm/mod_regex.so
