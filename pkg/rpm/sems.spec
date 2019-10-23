@@ -374,7 +374,7 @@ getent passwd %{name} >/dev/null || \
 %doc doc/Readme.echo.txt
 %doc doc/Readme.monitoring.txt
 %doc doc/Readme.msg_storage.txt
-%doc doc/Readme.py_sems.txt
+#%doc doc/Readme.py_sems.txt
 %doc doc/Readme.reg_agent.txt
 %doc doc/Readme.registrar_client.txt
 %doc doc/Readme.sst_b2b.txt
@@ -641,11 +641,11 @@ getent passwd %{name} >/dev/null || \
 #%{_datadir}/%{name}/audio/pin_collect/welcome.wav
 #%{_libdir}/%{name}/ivr/pin_collect.py*
 
-%files python
-%config(noreplace) %{_sysconfdir}/%{name}/etc/py_sems.conf
-%doc doc/Readme.py_sems.txt
-%{_libdir}/%{name}/plug-in/py_sems.so
-%{_libdir}/%{name}/plug-in/py_sems_log.py*
+#%files python
+#%config(noreplace) %{_sysconfdir}/%{name}/etc/py_sems.conf
+#%doc doc/Readme.py_sems.txt
+#%{_libdir}/%{name}/plug-in/py_sems.so
+#%{_libdir}/%{name}/plug-in/py_sems_log.py*
 
 %if 0%{?_with_rtmp}
 %files rtmp
