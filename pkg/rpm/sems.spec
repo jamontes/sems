@@ -523,11 +523,11 @@ getent passwd %{name} >/dev/null || \
 %{_libdir}/%{name}/plug-in/wav.so
 %{_libdir}/%{name}/plug-in/webconference.so
 
-%files conf_auth
+#%files conf_auth
 # currently empty
 #%config(noreplace) %{_sysconfdir}/%{name}/etc/conf_auth.conf
-%doc doc/Readme.conf_auth.txt
-%{_libdir}/%{name}/ivr/conf_auth.py*
+#%doc doc/Readme.conf_auth.txt
+#%{_libdir}/%{name}/ivr/conf_auth.py*
 
 %files conference
 %config(noreplace) %{_sysconfdir}/%{name}/etc/conference.conf
