@@ -77,16 +77,16 @@ It is used from other modules with the DI API - i.e. other modules
 can execute DI functions to add a server connection, or send a
 DIAMETER request.
 
-%package	dsm
-Summary:	The state machine interpreter for SEMS
-Requires:	%{name}%{?_isa} = %{version}-%{release}
-Obsoletes:	%{name} < 1.2.0
+#%package	dsm
+#Summary:	The state machine interpreter for SEMS
+#Requires:	%{name}%{?_isa} = %{version}-%{release}
+#Obsoletes:	%{name} < 1.2.0
 
-%description	dsm
-DonkeySM is a state machine interpreter for SEMS. Application
-or service logic can comfortably and accurately be defined
-as state machine, in a simple textual state machine definition
-language, and executed by the dsm module as application in SEMS.
+#%description	dsm
+#DonkeySM is a state machine interpreter for SEMS. Application
+#or service logic can comfortably and accurately be defined
+#as state machine, in a simple textual state machine definition
+#language, and executed by the dsm module as application in SEMS.
 
 %package	early_announce
 Summary:	Early announce application
@@ -541,32 +541,32 @@ getent passwd %{name} >/dev/null || \
 %doc doc/Readme.diameter_client.txt
 %{_libdir}/%{name}/plug-in/diameter_client.so
 
-%files dsm
-%config(noreplace) %{_sysconfdir}/%{name}/etc/dsm.conf
-%config(noreplace) %{_sysconfdir}/%{name}/etc/dsm_in_prompts.conf
-%config(noreplace) %{_sysconfdir}/%{name}/etc/dsm_out_prompts.conf
-%config(noreplace) %{_sysconfdir}/%{name}/etc/mod_regex.conf
-%doc doc/dsm
-%dir %{_libdir}/%{name}/dsm/
-%{_libdir}/%{name}/dsm/mod_conference.so
-%{_libdir}/%{name}/dsm/mod_dlg.so
-%{_libdir}/%{name}/dsm/mod_groups.so
-%{_libdir}/%{name}/dsm/mod_monitoring.so
-%{_libdir}/%{name}/dsm/mod_mysql.so
-%{_libdir}/%{name}/dsm/mod_py.so
-%{_libdir}/%{name}/dsm/mod_redis.so
-%{_libdir}/%{name}/dsm/mod_regex.so
-%{_libdir}/%{name}/dsm/mod_sbc.so
-%{_libdir}/%{name}/dsm/mod_subscription.so
-%{_libdir}/%{name}/dsm/mod_sys.so
-%{_libdir}/%{name}/dsm/mod_uri.so
-%{_libdir}/%{name}/dsm/mod_utils.so
-%{_libdir}/%{name}/plug-in/dsm.so
-# DSM scripts
-%{_libdir}/%{name}/dsm/early_dbprompt.dsm
-%{_libdir}/%{name}/dsm/inbound_call.dsm
-%{_libdir}/%{name}/dsm/mobile_push.dsm
-%{_libdir}/%{name}/dsm/outbound_call.dsm
+#%files dsm
+#%config(noreplace) %{_sysconfdir}/%{name}/etc/dsm.conf
+#%config(noreplace) %{_sysconfdir}/%{name}/etc/dsm_in_prompts.conf
+#%config(noreplace) %{_sysconfdir}/%{name}/etc/dsm_out_prompts.conf
+#%config(noreplace) %{_sysconfdir}/%{name}/etc/mod_regex.conf
+#%doc doc/dsm
+#%dir %{_libdir}/%{name}/dsm/
+#%{_libdir}/%{name}/dsm/mod_conference.so
+#%{_libdir}/%{name}/dsm/mod_dlg.so
+#%{_libdir}/%{name}/dsm/mod_groups.so
+#%{_libdir}/%{name}/dsm/mod_monitoring.so
+#%{_libdir}/%{name}/dsm/mod_mysql.so
+#%{_libdir}/%{name}/dsm/mod_py.so
+#%{_libdir}/%{name}/dsm/mod_redis.so
+#%{_libdir}/%{name}/dsm/mod_regex.so
+#%{_libdir}/%{name}/dsm/mod_sbc.so
+#%{_libdir}/%{name}/dsm/mod_subscription.so
+#%{_libdir}/%{name}/dsm/mod_sys.so
+#%{_libdir}/%{name}/dsm/mod_uri.so
+#%{_libdir}/%{name}/dsm/mod_utils.so
+#%{_libdir}/%{name}/plug-in/dsm.so
+## DSM scripts
+#%{_libdir}/%{name}/dsm/early_dbprompt.dsm
+#%{_libdir}/%{name}/dsm/inbound_call.dsm
+#%{_libdir}/%{name}/dsm/mobile_push.dsm
+#%{_libdir}/%{name}/dsm/outbound_call.dsm
 
 
 %files early_announce
