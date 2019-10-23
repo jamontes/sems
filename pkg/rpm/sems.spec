@@ -219,13 +219,12 @@ mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 
 %build
 mkdir cmake_build && cd cmake_build
-#/builddir/build/BUILD/sems-1.8.0/cmake_build
-
 cmake3 .. 
-
 make %{?_smp_mflags}
+cd ..
 
 %install
+cd cmake_build
 make install DESTDIR=%{buildroot}
 
 install -D -m 0644 -p pkg/rpm/sems.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
