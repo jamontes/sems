@@ -220,32 +220,32 @@ mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 %build
 mkdir cmake_build && cd cmake_build
 %{cmake3} .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
-      		-DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG \
-		      -DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG \
-	      	-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
-	      	-DCMAKE_INSTALL_PREFIX:PATH=/usr \
-      		-DINCLUDE_INSTALL_DIR:PATH=/usr/include \
-      		-DLIB_INSTALL_DIR:PATH=/usr/lib64 \
-      		-DSYSCONF_INSTALL_DIR:PATH=/etc \
-      		-DSHARE_INSTALL_PREFIX:PATH=/usr/share \
-	      	-DLIB_SUFFIX=64 \
-		      -DBUILD_SHARED_LIBS:BOOL=ON \
-		      -DSEMS_USE_SPANDSP=yes \
-		      -DSEMS_USE_LIBSAMPLERATE=yes \
-		      -DSEMS_USE_ZRTP=NO \
-		      -DSEMS_USE_MP3=yes \
-		      -DSEMS_USE_ILBC=yes \
-		      -DSEMS_USE_G729=yes \
-		      -DSEMS_USE_OPUS=yes \
-		      -DSEMS_USE_TTS=yes \
-		      -DSEMS_USE_OPENSSL=no \
-		      -DSEMS_USE_MONITORING=yes \
-		      -DSEMS_USE_IPV6=yes \
-		      -DSEMS_CFG_PREFIX= \
-		      -DSEMS_AUDIO_PREFIX=/usr/share \
-		      -DSEMS_EXEC_PREFIX=/usr \
-		      -DSEMS_LIBDIR=lib64 \
-		      -DSEMS_DOC_PREFIX=/usr/share/doc
+	-DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG \
+	-DCMAKE_Fortran_FLAGS_RELEASE:STRING=-DNDEBUG \
+	-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+	-DCMAKE_INSTALL_PREFIX:PATH=/usr \
+      	-DINCLUDE_INSTALL_DIR:PATH=/usr/include \
+      	-DLIB_INSTALL_DIR:PATH=/usr/lib64 \
+      	-DSYSCONF_INSTALL_DIR:PATH=/etc \
+      	-DSHARE_INSTALL_PREFIX:PATH=/usr/share \
+	-DLIB_SUFFIX=64 \
+	-DBUILD_SHARED_LIBS:BOOL=ON \
+	-DSEMS_USE_SPANDSP=yes \
+	-DSEMS_USE_LIBSAMPLERATE=yes \
+	-DSEMS_USE_ZRTP=NO \
+	-DSEMS_USE_MP3=yes \
+	-DSEMS_USE_ILBC=yes \
+	-DSEMS_USE_G729=yes \
+	-DSEMS_USE_OPUS=yes \
+	-DSEMS_USE_TTS=yes \
+	-DSEMS_USE_OPENSSL=yes \
+	-DSEMS_USE_MONITORING=yes \
+	-DSEMS_USE_IPV6=yes \
+	-DSEMS_CFG_PREFIX= \
+	-DSEMS_AUDIO_PREFIX=/usr/share \
+	-DSEMS_EXEC_PREFIX=/usr \
+	-DSEMS_LIBDIR=lib64 \
+	-DSEMS_DOC_PREFIX=/usr/share/doc
 
 make %{?_smp_mflags}
 cd ..
