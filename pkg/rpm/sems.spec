@@ -133,23 +133,23 @@ Requires:	%{name}%{?_isa} = %{version}-%{release}
 %description	ilbc
 iLBC support for SEMS.
 
-%package	ivr
-Summary:	IVR functionality for SEMS
-Requires:	python2 >= 2.3
-Requires:	%{name}%{?_isa} = %{version}-%{release}
+#%package	ivr
+#Summary:	IVR functionality for SEMS
+#Requires:	python2 >= 2.3
+#Requires:	%{name}%{?_isa} = %{version}-%{release}
 
-%description	ivr
-IVR functionality for SEMS.
+#%description	ivr
+#IVR functionality for SEMS.
 
-%package	mailbox
-Summary:	Mailbox application
-Requires:	%{name}%{?_isa} = %{version}-%{release}
-Requires:	%{name}-ivr%{?_isa} = %{version}-%{release}
+#%package	mailbox
+#Summary:	Mailbox application
+#Requires:	%{name}%{?_isa} = %{version}-%{release}
+#Requires:	%{name}-ivr%{?_isa} = %{version}-%{release}
 
-%description	mailbox
-The mailbox application is a mailbox where callers can leave messages
-for offline or unavailable users and the users can dial in to check their
-messages. It uses an IMAP server as back-end to store the voice messages.
+#%description	mailbox
+#The mailbox application is a mailbox where callers can leave messages
+#for offline or unavailable users and the users can dial in to check their
+#messages. It uses an IMAP server as back-end to store the voice messages.
 
 %package	mp3
 Summary:	mp3 support for SEMS
@@ -165,14 +165,14 @@ Requires:	%{name}%{?_isa} = %{version}-%{release}
 %description	opus
 Opus support for SEMS.
 
-%package	pin_collect
-Summary:	Collects a PIN
-Requires:	%{name}%{?_isa} = %{version}-%{release}
-Requires:	%{name}-ivr%{?_isa} = %{version}-%{release}
+#%package	pin_collect
+#Summary:	Collects a PIN
+#Requires:	%{name}%{?_isa} = %{version}-%{release}
+#Requires:	%{name}-ivr%{?_isa} = %{version}-%{release}
 
-%description	pin_collect
-This application collects a PIN and then transfers using a
-(proprietary) REFER the call.
+#%description	pin_collect
+#This application collects a PIN and then transfers using a
+#(proprietary) REFER the call.
 
 %package	python
 Summary:	Python bindings for SEMS
@@ -594,37 +594,37 @@ getent passwd %{name} >/dev/null || \
 %doc doc/Readme.iLBC.txt
 %{_libdir}/%{name}/plug-in/ilbc.so
 
-%files ivr
-%config(noreplace) %{_sysconfdir}/%{name}/etc/ivr.conf
-%doc doc/Readme.ivr.txt
-%dir %{_libdir}/%{name}/ivr/
-%{_libdir}/%{name}/plug-in/ivr.so
-%{_libdir}/%{name}/ivr/log.py*
+#%files ivr
+#%config(noreplace) %{_sysconfdir}/%{name}/etc/ivr.conf
+#%doc doc/Readme.ivr.txt
+#%dir %{_libdir}/%{name}/ivr/
+#%{_libdir}/%{name}/plug-in/ivr.so
+#%{_libdir}/%{name}/ivr/log.py*
 
-%files mailbox
-%config(noreplace) %{_sysconfdir}/%{name}/etc/mailbox.conf
-%config(noreplace) %{_sysconfdir}/%{name}/etc/mailbox_query.conf
-%doc doc/Readme.mailbox.txt
-%dir %{_datadir}/%{name}/audio/mailbox/
-%dir %{_libdir}/%{name}/ivr/imap_mailbox/
-%{_datadir}/%{name}/audio/mailbox/and.wav
-%{_datadir}/%{name}/audio/mailbox/beep.wav
-%{_datadir}/%{name}/audio/mailbox/bye.wav
-%{_datadir}/%{name}/audio/mailbox/default_en.wav
-%{_datadir}/%{name}/audio/mailbox/first_msg.wav
-%{_datadir}/%{name}/audio/mailbox/msg_deleted.wav
-%{_datadir}/%{name}/audio/mailbox/msg_menu.wav
-%{_datadir}/%{name}/audio/mailbox/msg_saved.wav
-%{_datadir}/%{name}/audio/mailbox/new_msg.wav
-%{_datadir}/%{name}/audio/mailbox/next_msg.wav
-%{_datadir}/%{name}/audio/mailbox/no_msg.wav
-%{_datadir}/%{name}/audio/mailbox/saved_msg.wav
-%{_datadir}/%{name}/audio/mailbox/you_have.wav
-%{_libdir}/%{name}/ivr/mailbox.py*
-%{_libdir}/%{name}/ivr/mailbox_query.py*
-%{_libdir}/%{name}/ivr/imap_mailbox/MailboxURL.py*
-%{_libdir}/%{name}/ivr/imap_mailbox/__init__.py*
-%{_libdir}/%{name}/ivr/imap_mailbox/imap4ext.py*
+#%files mailbox
+#%config(noreplace) %{_sysconfdir}/%{name}/etc/mailbox.conf
+#%config(noreplace) %{_sysconfdir}/%{name}/etc/mailbox_query.conf
+#%doc doc/Readme.mailbox.txt
+#%dir %{_datadir}/%{name}/audio/mailbox/
+#%dir %{_libdir}/%{name}/ivr/imap_mailbox/
+#%{_datadir}/%{name}/audio/mailbox/and.wav
+#%{_datadir}/%{name}/audio/mailbox/beep.wav
+#%{_datadir}/%{name}/audio/mailbox/bye.wav
+#%{_datadir}/%{name}/audio/mailbox/default_en.wav
+#%{_datadir}/%{name}/audio/mailbox/first_msg.wav
+#%{_datadir}/%{name}/audio/mailbox/msg_deleted.wav
+#%{_datadir}/%{name}/audio/mailbox/msg_menu.wav
+#%{_datadir}/%{name}/audio/mailbox/msg_saved.wav
+#%{_datadir}/%{name}/audio/mailbox/new_msg.wav
+#%{_datadir}/%{name}/audio/mailbox/next_msg.wav
+#%{_datadir}/%{name}/audio/mailbox/no_msg.wav
+#%{_datadir}/%{name}/audio/mailbox/saved_msg.wav
+#%{_datadir}/%{name}/audio/mailbox/you_have.wav
+#%{_libdir}/%{name}/ivr/mailbox.py*
+#%{_libdir}/%{name}/ivr/mailbox_query.py*
+#%{_libdir}/%{name}/ivr/imap_mailbox/MailboxURL.py*
+#%{_libdir}/%{name}/ivr/imap_mailbox/__init__.py*
+#%{_libdir}/%{name}/ivr/imap_mailbox/imap4ext.py*
 
 %files mp3
 %doc doc/Readme.mp3plugin.txt
@@ -633,13 +633,13 @@ getent passwd %{name} >/dev/null || \
 %files opus
 %{_libdir}/%{name}/plug-in/opus.so
 
-%files pin_collect
-%config(noreplace) %{_sysconfdir}/%{name}/etc/pin_collect.conf
-%doc doc/Readme.pin_collect.txt
-%dir %{_datadir}/%{name}/audio/pin_collect/
-%{_datadir}/%{name}/audio/pin_collect/enter_pin.wav
-%{_datadir}/%{name}/audio/pin_collect/welcome.wav
-%{_libdir}/%{name}/ivr/pin_collect.py*
+#%files pin_collect
+#%config(noreplace) %{_sysconfdir}/%{name}/etc/pin_collect.conf
+#%doc doc/Readme.pin_collect.txt
+#%dir %{_datadir}/%{name}/audio/pin_collect/
+#%{_datadir}/%{name}/audio/pin_collect/enter_pin.wav
+#%{_datadir}/%{name}/audio/pin_collect/welcome.wav
+#%{_libdir}/%{name}/ivr/pin_collect.py*
 
 %files python
 %config(noreplace) %{_sysconfdir}/%{name}/etc/py_sems.conf
