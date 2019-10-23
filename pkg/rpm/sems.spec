@@ -48,13 +48,13 @@ you to extend SEMS and write your own applications and integrate new
 codec. Voice-mail, announcement and echo plug-ins are already included.
 SEMS supports g711u, g711a, GSM06.10 and wav file.
 
-%package	conf_auth
-Summary:	Conference with authorization
-Requires:	%{name}%{?_isa} = %{version}-%{release}
-Requires:	%{name}-ivr%{?_isa} = %{version}-%{release}
+#%package	conf_auth
+#Summary:	Conference with authorization
+#Requires:	%{name}%{?_isa} = %{version}-%{release}
+#Requires:	%{name}-ivr%{?_isa} = %{version}-%{release}
 
-%description	conf_auth
-Conference with authorization by PIN-numbers.
+#%description	conf_auth
+#Conference with authorization by PIN-numbers.
 
 %package	conference
 Summary:	Conferencing application
