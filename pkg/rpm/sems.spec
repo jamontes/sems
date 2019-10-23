@@ -216,8 +216,7 @@ XMLRPC servers.
 mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 
 %build
-ls -al
-ls -al sems-1.8.0
+
 mkdir CMAKER
 cd CMAKER
 cmake3 .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
@@ -247,6 +246,8 @@ cmake3 .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
 		-DSEMS_EXEC_PREFIX=/usr \
 		-DSEMS_LIBDIR=lib64 \
 		-DSEMS_DOC_PREFIX=/usr/share/doc
+ls -al sems-1.8.0
+cd ..
 
 
 # %{cmake3} \
