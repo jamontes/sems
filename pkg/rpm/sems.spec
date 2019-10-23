@@ -253,6 +253,7 @@ cd ..
 %install
 cd cmake_build
 make install DESTDIR=%{buildroot}
+cd..
 
 install -D -m 0644 -p pkg/rpm/sems.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 
