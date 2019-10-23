@@ -216,10 +216,8 @@ XMLRPC servers.
 mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 
 %build
-
-mkdir CMAKER
-cd CMAKER
-#/builddir/build/BUILD/sems-1.8.0/CMAKER
+mkdir cmake_build && cd cmake_build
+#/builddir/build/BUILD/sems-1.8.0/cmake_build
 
 cmake3 /builddir/build/BUILD/sems-1.8.0 -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
 		-DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG \
