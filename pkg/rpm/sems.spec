@@ -41,6 +41,9 @@ Requires(post): systemd-units
 Requires(preun): systemd-units
 Requires(postun): systemd-units
 
+%define _unpackaged_files_terminate_build 0
+%define _missing_doc_files_terminate_build 0
+
 %description
 SEMS (SIP Express Media Server) is very extensible and programmable
 SIP media server for SER or OpenSER. The plug-in based SDK enables
