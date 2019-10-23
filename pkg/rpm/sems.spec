@@ -250,7 +250,8 @@ cmake3 ..
 #		-DSEMS_EXEC_PREFIX=/usr \
 #		-DSEMS_LIBDIR=lib64 \
 #		-DSEMS_DOC_PREFIX=/usr/share/doc
-#cd ..
+
+cd ..
 
 # %{cmake3} \
 #	-DSEMS_USE_SPANDSP=yes \
