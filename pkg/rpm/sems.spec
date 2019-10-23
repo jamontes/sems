@@ -218,9 +218,7 @@ mv ./apps/dsm/fsmc/readme.txt  ./apps/dsm/fsmc/Readme.fsmc.txt
 %build
 mkdir cmake_build && cd cmake_build
 #/builddir/build/BUILD/sems-1.8.0/cmake_build
-
-%cmake3 ..
-
+cmake3 .. -DLIB_INSTALL_DIR:PATH=/usr/lib64 -DLIB_SUFFIX=64
 
 #		-DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
 #		-DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG \
