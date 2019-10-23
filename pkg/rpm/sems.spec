@@ -246,7 +246,6 @@ cmake3 .. -DCMAKE_C_FLAGS_RELEASE:STRING=-DNDEBUG \
 		-DSEMS_EXEC_PREFIX=/usr \
 		-DSEMS_LIBDIR=lib64 \
 		-DSEMS_DOC_PREFIX=/usr/share/doc
-ls -al sems-1.8.0
 cd ..
 
 
