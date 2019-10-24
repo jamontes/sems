@@ -2,15 +2,19 @@ Summary:	SIP Express Media Server, an extensible SIP media server
 Name:		sems
 Version:	1.8.0
 #Release:	1%{?dist}
-%define build_timestamp %(date +"%Y%m%d")
-Release: %{build_timestamp}%{?dist}
+
+# defines
+%define		build_timestamp %(date +"%s")
+%define		_unpackaged_files_terminate_build 0
+%define		_missing_doc_files_terminate_build 0
+
+Release:	%{build_timestamp}%{?dist}
 URL:		https://github.com/sems-server/%{name}
 #Source0:	https://github.com/sems-server/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 #Source0:	https://github.com/sems-server/sems/archive/master.tar.gz
 Source0:	https://github.com/denyspozniak/sems/archive/master.tar.gz
 
 License:	GPLv2+
-
 #BuildRequires:	cmake >= 2.4
 BuildRequires:	flite-devel
 BuildRequires:	gcc-c++
@@ -42,9 +46,6 @@ Requires(pre):  /usr/sbin/useradd
 Requires(post): systemd-units
 Requires(preun): systemd-units
 Requires(postun): systemd-units
-
-%define _unpackaged_files_terminate_build 0
-%define _missing_doc_files_terminate_build 0
 
 %description
 SEMS (SIP Express Media Server) is very extensible and programmable
