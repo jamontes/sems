@@ -4,7 +4,7 @@ Version:	1.8.0
 #Release:	1%{?dist}
 
 # defines
-%define		build_timestamp %(date +"%s")
+%define		build_timestamp %(date +"%Y%m%d%H%M")
 %define		_unpackaged_files_terminate_build 0
 %define		_missing_doc_files_terminate_build 0
 
