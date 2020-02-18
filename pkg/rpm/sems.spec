@@ -251,7 +251,8 @@ mkdir cmake_build && cd cmake_build
 	-DSEMS_AUDIO_PREFIX=/usr/share \
 	-DSEMS_EXEC_PREFIX=/usr \
 	-DSEMS_LIBDIR=lib64 \
-	-DSEMS_DOC_PREFIX=/usr/share/doc
+	-DSEMS_DOC_PREFIX=/usr/share/doc \
+	-DSEMS_USE_THREADPOOL=yes
 
 make %{?_smp_mflags}
 cd ..
