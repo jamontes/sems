@@ -164,6 +164,9 @@ void AmRtpReceiverThread::addStream(int sd, AmRtpStream* stream)
   streams_ports[stream->getLocalPort()] = stream;
   streams_mut.unlock();
 
+  // crash detecting purpose only
+  INFO("AmRtpReceiverThread::addStream[%p](%d, %p) si:%p, ev_read:%p",this,sd, stream, &si, ev_read);
+
   // This must be done when 
   // streams_mut is NOT locked
   event_add(ev_read,NULL);
@@ -183,6 +186,9 @@ void AmRtpReceiverThread::removeStream(int sd, int local_port)
     streams_mut.unlock();
     return;
   }
+
+  // crash detecting purpose only
+  INFO("AmRtpReceiverThread::removeStream[%p](%d) stream:%p ev_read:%p",this,sd, si.stream, si.ev_read);
 
   si.stream = NULL;
   event* ev_read = si.ev_read;
