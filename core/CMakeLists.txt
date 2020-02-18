@@ -21,7 +21,16 @@ ADD_EXECUTABLE(sems_tests ${sems_tests_SRCS})
 
 FOREACH (EXE_TARGET sems sems_tests)
 
-	TARGET_LINK_LIBRARIES(${EXE_TARGET} ${CMAKE_DL_LIBS} sems_core sems_sip event event_pthreads -rdynamic)
+	# This allows symbols defined in the SIP stack but not used
+	# by the core itself to be included in the executable and
+	# thus be available for modules
+	IF(APPLE)
+		TARGET_LINK_LIBRARIES(${EXE_TARGET} ${CMAKE_DL_LIBS} sems_core -Wl,-all_load sems_sip event event_pthreads -rdynamic)
+	ELSEIF(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+		TARGET_LINK_LIBRARIES(${EXE_TARGET} ${CMAKE_DL_LIBS} sems_core -Wl,-force_load sems_sip event event_pthreads -rdynamic)
+	ELSE()
+		TARGET_LINK_LIBRARIES(${EXE_TARGET} ${CMAKE_DL_LIBS} sems_core -Wl,--whole-archive sems_sip -Wl,--no-whole-archive event event_pthreads -rdynamic)
+	ENDIF()
 
 	IF(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
 		TARGET_LINK_LIBRARIES(${EXE_TARGET} execinfo)
