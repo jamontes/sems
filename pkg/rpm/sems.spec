@@ -1,6 +1,3 @@
-# defines
-%global		build_timestamp %(date +"%Y%m%d%H%M")
-
 Summary:	SIP Express Media Server, an extensible SIP media server
 Name:		sems
 Version:	1.8.0
@@ -19,20 +16,24 @@ Source0:	https://github.com/denyspozniak/sems/archive/master.tar.gz
 
 License:	GPLv2+
 #BuildRequires:	cmake >= 2.4
-Version:	1.7.0
-Release:	1.%{build_timestamp}%{?dist}
-URL:		https://github.com/sems-server/%{name}
-Source0:	https://github.com/sems-server/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
-
-License:	GPLv2+
-BuildRequires:	bcg729-devel
-BuildRequires:	cmake3
-BuildRequires:	codec2-devel
+BuildRequires:	flite-devel
+BuildRequires:	gcc-c++
+BuildRequires:	gsm-devel
+BuildRequires:	hiredis-devel
+BuildRequires:	ilbc-devel
 BuildRequires:	lame-devel
+BuildRequires:	libevent-devel
+BuildRequires:	libmpg123-devel
+BuildRequires:	libsamplerate-devel
+BuildRequires:	mISDN-devel
+BuildRequires:	mysql++-devel
+BuildRequires:	openssl-devel
+BuildRequires:	opus-devel
 #BuildRequires:	python2-devel
-BuildRequires:	python-devel
-#BuildRequires:	python2-devel
-BuildRequires:	sip-devel
+BuildRequires:	spandsp-devel
+BuildRequires:	speex-devel
+BuildRequires:	systemd
+
 BuildRequires:	flite-devel
 BuildRequires:	python-devel
 BuildRequires:	sip-devel
