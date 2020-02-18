@@ -26,11 +26,9 @@ BuildRequires:	mISDN-devel
 BuildRequires:	mysql++-devel
 BuildRequires:	openssl-devel
 BuildRequires:	opus-devel
-#BuildRequires:	python2-devel
 BuildRequires:	spandsp-devel
 BuildRequires:	speex-devel
 BuildRequires:	systemd
-
 BuildRequires:	flite-devel
 BuildRequires:	python-devel
 BuildRequires:	sip-devel
