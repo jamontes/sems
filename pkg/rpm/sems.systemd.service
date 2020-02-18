@@ -12,6 +12,7 @@ Restart=always
 StartLimitInterval=10
 StartLimitBurst=5
 ExecStart=/usr/sbin/sems -E -u sems -g sems -P /var/run/sems/sems.pid $OPTIONS
+LimitNOFILE=60000
 
 [Install]
 WantedBy=multi-user.target
