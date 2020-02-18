@@ -1,7 +1,6 @@
 Summary:	SIP Express Media Server, an extensible SIP media server
 Name:		sems
 Version:	1.8.0
-#Release:	1%{?dist}
 
 # defines
 %define		build_timestamp %(date +"%Y%m%d%H%M")
@@ -10,12 +9,10 @@ Version:	1.8.0
 
 Release:	%{build_timestamp}%{?dist}
 URL:		https://github.com/sems-server/%{name}
-#Source0:	https://github.com/sems-server/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 #Source0:	https://github.com/sems-server/sems/archive/master.tar.gz
 Source0:	https://github.com/denyspozniak/sems/archive/master.tar.gz
 
 License:	GPLv2+
-#BuildRequires:	cmake >= 2.4
 BuildRequires:	flite-devel
 BuildRequires:	gcc-c++
 BuildRequires:	gsm-devel
