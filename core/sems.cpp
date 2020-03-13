@@ -626,9 +626,6 @@ int main(int argc, char* argv[])
 
   AmSessionContainer::instance()->initMonitoring();
 
-  INFO("Starting RTP MUX receiver\n");
-  AmRtpReceiver::instance()->startRtpMuxReceiver();
-
   #ifndef DISABLE_DAEMON_MODE
   if(fd[1]) {
     if (write(fd[1], &main_pid, sizeof(int))<0) {

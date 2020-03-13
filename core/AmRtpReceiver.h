@@ -38,7 +38,6 @@
 using std::greater;
 
 class AmRtpStream;
-class AmRtpMuxStream;
 class _AmRtpReceiver;
 
 /**
@@ -64,43 +63,19 @@ class AmRtpReceiverThread
     {}
   };
 
-  struct RtpPacket
-  {
-    AmRtpStream* stream;
-    struct event* ev_read;
-    AmRtpReceiverThread* thread;
-    unsigned char* pkt;
-    size_t len;
-    
-    RtpPacket()
-      : stream(NULL),
-	ev_read(NULL),
-	thread(NULL),
-	pkt(NULL),
-	len(0)
-    {}
-    ~RtpPacket() {
-      if (pkt) {
-	delete[] pkt;
-      }
-    }
-  };
-
   typedef std::map<int, StreamInfo> Streams;
 
   struct event_base* ev_base;
   struct event*      ev_default;
 
   Streams  streams;
-  std::map<int, AmRtpStream*> streams_ports;
   AmMutex  streams_mut;
 
   AmSharedVar<bool> stop_requested;
 
   static void _rtp_receiver_read_cb(evutil_socket_t sd, short what, void* arg);
-  static void _rtp_receiver_buf_cb(evutil_socket_t sd, short what, void* arg);
 
-public:
+public:    
   AmRtpReceiverThread();
   ~AmRtpReceiverThread();
     
@@ -108,8 +83,7 @@ public:
   void on_stop();
 
   void addStream(int sd, AmRtpStream* stream);
-  void removeStream(int sd, int local_port);
-  int recvdPacket(bool need_lock, int local_port, unsigned char* buf, size_t len);
+  void removeStream(int sd);
 
   void stop_and_wait();
 };
@@ -121,9 +95,7 @@ class _AmRtpReceiver
 
   atomic_int next_index;
 
-  AmRtpMuxStream* mux_stream;
-
-protected:
+protected:    
   _AmRtpReceiver();
   ~_AmRtpReceiver();
 
@@ -133,10 +105,7 @@ public:
   void start();
 
   void addStream(int sd, AmRtpStream* stream);
-  void removeStream(int sd, int local_port);
-
-  int recvdPacket(int recvd_port, int local_port, unsigned char* buf, size_t len);
-  void startRtpMuxReceiver();
+  void removeStream(int sd);
 };
 
 typedef singleton<_AmRtpReceiver> AmRtpReceiver;
